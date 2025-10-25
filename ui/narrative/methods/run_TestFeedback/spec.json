@@ -20,6 +20,17 @@
       }
     },
     {
+      "text_options": {
+        "valid_ws_types": ["KBaseFBA.FBAModel"]
+      },
+      "advanced": false,
+      "default_values": [""],
+      "id": "fbamodel_id",
+      "optional": false,
+      "allow_multiple": false,
+      "field_type": "text"
+    },
+    {
       "id": "test_run",
       "optional": true,
       "advanced": false,
@@ -79,6 +90,10 @@
         {
           "narrative_system_variable": "workspace_id",
           "target_property": "workspace_id"
+        },
+        {
+          "input_parameter": "fbamodel_id",
+          "target_property": "fbamodel_id"
         },
         {
           "input_parameter": "table_id",

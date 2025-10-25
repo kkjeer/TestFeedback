@@ -24,6 +24,13 @@ parameters:
       App Runner table
     short-hint: |
       StringDataTable output by the App Runner app containing the results of running FBA
+  fbamodel_id:
+    ui-name: |
+      FBA model
+    short-hint: |
+      The metabolic model consisting of genome-wide set of stoichiometric reactions, compounds, and the weighted components of the biomass on which you wish to carry out Flux Balance Analysis (FBA). This model can be built using the “Build Metabolic Model” App.
+    placeholder: |
+      Model for FBA
   test_run:
     ui-name: |
       Test run
