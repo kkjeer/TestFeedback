@@ -67,7 +67,7 @@ Provide feedback on test runs of flux balance analysis.
         fileUtil = FileUtil(self.config)
 
         # Read the string data table created from AppRunner
-        table = fileUtil.readStringTable(ctx, params["table_id"])
+        table = fileUtil.readStringTable(ctx, params["table_id"], params["workspace_name"])
         if table is not None:
           logging.info(f'got string data table')
 
