@@ -10,7 +10,7 @@
   "parameters": [
     {
       "id": "assembly_input_ref",
-      "optional": false,
+      "optional": true,
       "advanced": false,
       "allow_multiple": false,
       "default_values": [""],
@@ -24,7 +24,7 @@
     },
     {
       "id": "min_length",
-      "optional": false,
+      "optional": true,
       "advanced": false,
       "allow_multiple": false,
       "default_values": [""],
