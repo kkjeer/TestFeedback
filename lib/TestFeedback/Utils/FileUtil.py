@@ -18,7 +18,7 @@ class FileUtil:
   def readStringTable(self, ctx, table_ref, workspace_name):
     try:
       ws = Workspace(self.ws_url, token=ctx['token'])
-      obj = ws.get_objects2({'objects' : [{'name' : table_ref, 'find_reference_path': 1, 'workspace_name': workspace_name}]})
+      obj = ws.get_objects2({'objects' : [{'name' : table_ref, 'find_reference_path': 1}], 'workspace_name': workspace_name})
       logging.info(f'read string table: {obj}')
       return obj
     except Exception as e:
