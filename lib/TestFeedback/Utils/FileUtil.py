@@ -2,6 +2,7 @@ import logging
 import os
 
 from installed_clients.WorkspaceClient import Workspace
+from installed_clients.DataFileUtilClient import DataFileUtil
 
 # This class is responsible for reading and writing files to the user's workspace.
 class FileUtil:
@@ -15,6 +16,9 @@ class FileUtil:
     
   # This method reads the string table that was created at the end of running the AppRunner app
   def readStringTable(self, ctx, table_ref):
+    dfu = DataFileUtil(self.callback_url)
+    id = dfu.ws_name_to_id(table_ref)
+    logging.info(f'id: {id}')
     try:
       ws = Workspace(self.ws_url, token=ctx['token'])
       obj = ws.get_objects2({'objects' : [{'ref' : table_ref}]})
