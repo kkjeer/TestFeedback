@@ -26,7 +26,7 @@
       "advanced": false,
       "default_values": [""],
       "id": "fbamodel_id",
-      "optional": false,
+      "optional": true,
       "allow_multiple": false,
       "field_type": "text"
     },
