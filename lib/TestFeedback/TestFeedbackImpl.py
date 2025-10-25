@@ -18,7 +18,7 @@ class TestFeedback:
 
     Module Description:
     A KBase module: TestFeedback
-Gathers feedback on test runs of flux balance analysis.
+Provide feedback on test runs of flux balance analysis.
     '''
 
     ######## WARNING FOR GEVENT USERS ####### noqa
@@ -39,10 +39,9 @@ Gathers feedback on test runs of flux balance analysis.
     # be found
     def __init__(self, config):
         #BEGIN_CONSTRUCTOR
-        
-        # Any configuration parameters that are important should be parsed and
-        # saved in the constructor.
+        self.config = config
         self.callback_url = os.environ['SDK_CALLBACK_URL']
+        self.ws_url = config["workspace-url"]
         self.shared_folder = config['scratch']
         logging.basicConfig(format='%(created)s %(levelname)s: %(message)s',
                             level=logging.INFO)
