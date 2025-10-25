@@ -9,30 +9,12 @@
   },
   "parameters": [
     {
-      "id": "assembly_input_ref",
+      "id": "test_run",
       "optional": true,
       "advanced": false,
       "allow_multiple": false,
       "default_values": [""],
-      "field_type": "text",
-      "text_options": {
-        "valid_ws_types": [
-          "KBaseGenomeAnnotations.Assembly",
-          "KBaseGenomes.ContigSet"
-        ]
-      }
-    },
-    {
-      "id": "min_length",
-      "optional": true,
-      "advanced": false,
-      "allow_multiple": false,
-      "default_values": [""],
-      "field_type": "text",
-      "text_options": {
-        "validate_as": "int",
-        "min_integer": 0
-      }
+      "field_type": "text"
     },
     {
       "id": "feedback",
@@ -64,6 +46,15 @@
       }
     }
   ],
+  "parameter-groups": [
+    {
+      "id": "param_group",
+      "parameters": ["test_run", "feedback"],
+      "optional": false,
+      "allow_multiple": true,
+      "with_border": true
+    }
+  ],
   "behavior": {
     "service-mapping": {
       "url": "",
@@ -79,13 +70,8 @@
           "target_property": "workspace_id"
         },
         {
-          "input_parameter": "assembly_input_ref",
-          "target_property": "assembly_input_ref",
-          "target_type_transform": "resolved-ref"
-        },
-        {
-          "input_parameter": "min_length",
-          "target_property": "min_length"
+          "input_parameter": "param_group",
+          "target_property": "param_group"
         }
       ],
       "output_mapping": [
