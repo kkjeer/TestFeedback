@@ -21,4 +21,13 @@ class TestFeedbackUtil:
     result = {}
     data = table['data'][0]['data']
     logging.info(f'table data: {json.dumps(data, indent=2)}')
+
+    for i in range(0, len(data['row_labels'])):
+      key = data['row_labels'][i]
+      obj = {}
+      d = data['data'][i]
+      for j in range(0, len(d)):
+        label = data['column_labels'][j]
+        obj[label] = d[j]
+      result[key] = obj
     return result

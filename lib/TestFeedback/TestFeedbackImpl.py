@@ -78,7 +78,7 @@ Provide feedback on test runs of flux balance analysis.
         # Build a report and return
         reportObj = {
           'objects_created': [],
-          'text_message': 'Done running app'
+          'text_message': f'Done running app. AppRunner output object:<br />{json.dumps(app_runner_output, indent=2)}'
         }
         report = KBaseReport(self.callback_url)
         report_info = report.create({'report': reportObj, 'workspace_name': params['workspace_name']})
