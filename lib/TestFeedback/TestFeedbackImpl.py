@@ -3,8 +3,10 @@
 # The header block is where all import statments should live
 import logging
 import os
+import json
 from pprint import pformat
 
+from Utils.TestFeedbackUtil import TestFeedbackUtil
 from Utils.FileUtil import FileUtil
 
 from installed_clients.KBaseReportClient import KBaseReport
@@ -64,14 +66,16 @@ Provide feedback on test runs of flux balance analysis.
         logging.info('Starting run_TestFeedback function. Params=' + pformat(params))
 
         # Create utilities
+        testFeedbackUtil = TestFeedbackUtil(self.config)
         fileUtil = FileUtil(self.config)
 
-        # Read the string data table created from AppRunner
-        table = fileUtil.readStringTable(ctx, params["table_id"], params["workspace_name"])
-        if table is not None:
-          logging.info(f'got string data table')
+        # Read the output created from AppRunner (this contains the information about the FBA runs)
+        string_data_table = fileUtil.readStringTable(ctx, params["table_id"], params["workspace_name"])
+        app_runner_output = testFeedbackUtil.getAppRunnerOutputAsJson(string_data_table)
+        if app_runner_output is not None:
+          logging.info(f'got app runner output json: {json.dumps(app_runner_output, indent=2)}')
 
-        # Build a Report and return
+        # Build a report and return
         reportObj = {
           'objects_created': [],
           'text_message': 'Done running app'
