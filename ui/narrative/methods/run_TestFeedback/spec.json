@@ -4,7 +4,7 @@
   "contact": "https://kbase.us/contact-us/",
   "categories": ["active"],
   "widgets": {
-    "input": null,
+    "input": "kbaseNarrativeMethodInput",
     "output": "no-display"
   },
   "parameters": [
