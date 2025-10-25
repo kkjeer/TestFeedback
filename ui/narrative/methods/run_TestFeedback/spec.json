@@ -9,6 +9,17 @@
   },
   "parameters": [
     {
+      "id": "table_id",
+      "optional": false,
+      "advanced": false,
+      "allow_multiple": false,
+      "default_values": [""],
+      "field_type": "text",
+      "text_options": {
+        "valid_ws_types": ["MAK.StringDataTable"]
+      }
+    },
+    {
       "id": "test_run",
       "optional": true,
       "advanced": false,
@@ -68,6 +79,10 @@
         {
           "narrative_system_variable": "workspace_id",
           "target_property": "workspace_id"
+        },
+        {
+          "input_parameter": "table_id",
+          "target_property": "table_id"
         },
         {
           "input_parameter": "param_group",
