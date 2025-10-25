@@ -5,6 +5,8 @@ import logging
 import os
 from pprint import pformat
 
+from Utils.FileUtil import FileUtil
+
 from installed_clients.KBaseReportClient import KBaseReport
 #END_HEADER
 
@@ -62,14 +64,21 @@ Gathers feedback on test runs of flux balance analysis.
         # Print statements to stdout/stderr are captured and available as the App log
         logging.info('Starting run_TestFeedback function. Params=' + pformat(params))
 
+        # Create utilities
+        fileUtil = FileUtil(self.config)
+
+        # Read the string data table created from AppRunner
+        table = fileUtil.readStringTable(params["table_id"])
+        if table is not None:
+          logging.info(f'got string data table')
+
         # Build a Report and return
         reportObj = {
-            'objects_created': [],
-            'text_message': 'Done running app'
+          'objects_created': [],
+          'text_message': 'Done running app'
         }
         report = KBaseReport(self.callback_url)
         report_info = report.create({'report': reportObj, 'workspace_name': params['workspace_name']})
-
 
         # Contruct the output to send back
         output = {'report_name': report_info['name'],

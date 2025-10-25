@@ -3,7 +3,7 @@
 #
 name: Test Feedback
 tooltip: |
-  Gathers feedback on test runs of flux balance analysis
+  Provide feedback on test runs of flux balance analysis
 screenshots: []
 icon: null
 
