@@ -75,10 +75,13 @@ Provide feedback on test runs of flux balance analysis.
         if app_runner_output is not None:
           logging.info(f'got app runner output json: {json.dumps(app_runner_output, indent=2)}')
 
+        # Add the feedback to the FBA results
+        results_with_feedback = testFeedbackUtil.addFeedbackToFBAOutput(app_runner_output, params['param_group'])
+
         # Build a report and return
         reportObj = {
           'objects_created': [],
-          'text_message': f'Done running app. AppRunner output object:<br />{json.dumps(app_runner_output, indent=2)}'
+          'text_message': f'Resuts with feedback:<br />{json.dumps(results_with_feedback, indent=2)}'
         }
         report = KBaseReport(self.callback_url)
         report_info = report.create({'report': reportObj, 'workspace_name': params['workspace_name']})

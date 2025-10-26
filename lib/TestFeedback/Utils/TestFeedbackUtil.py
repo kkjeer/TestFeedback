@@ -31,3 +31,28 @@ class TestFeedbackUtil:
         obj[label] = d[j]
       result[key] = obj
     return result
+  
+  def addFeedbackToFBAOutput(self, output_json, categories):
+    result = {}
+
+    rows = list(output_json.keys())
+
+    for i in range(0, len(categories)):
+      run = categories[i]['test_run']
+      row = ''
+      if run == str(i):
+        row = rows[i]
+      elif run == '':
+        row = rows[i]
+      else:
+        for r in rows:
+          if run == rows[r]['fba_output_id']:
+            row = r
+            break
+      if row != '':
+        result[row] = {
+          **output_json[row],
+          'feedback': categories[i]['feedback']
+        }
+
+    return result
