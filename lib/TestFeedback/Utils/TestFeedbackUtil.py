@@ -40,13 +40,17 @@ class TestFeedbackUtil:
     for i in range(0, len(categories)):
       run = categories[i]['test_run']
       row = ''
+      # User entered an index in the test_run field
       if run == str(i):
         row = rows[i]
+      # User left the test_run field blank - default to the index in the set of categories
       elif run == '':
         row = rows[i]
+      # User entered something else in the test_run field - look through the app runner output
+      # to see if their input matches an fba_output_id for any FBA run
       else:
         for r in rows:
-          if run == rows[r]['fba_output_id']:
+          if run == output_json[r]['fba_output_id']:
             row = r
             break
       if row != '':
