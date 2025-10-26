@@ -8,6 +8,7 @@ from pprint import pformat
 
 from Utils.TestFeedbackUtil import TestFeedbackUtil
 from Utils.FileUtil import FileUtil
+from Utils.OutputUtil import OutputUtil
 
 from installed_clients.KBaseReportClient import KBaseReport
 #END_HEADER
@@ -68,6 +69,7 @@ Provide feedback on test runs of flux balance analysis.
         # Create utilities
         testFeedbackUtil = TestFeedbackUtil(self.config)
         fileUtil = FileUtil(self.config)
+        outputUtil = OutputUtil(self.config)
 
         # Read the output created from AppRunner (this contains the information about the FBA runs)
         string_data_table = fileUtil.readStringTable(ctx, params["table_id"], params["workspace_name"])
@@ -78,10 +80,11 @@ Provide feedback on test runs of flux balance analysis.
         # Add the feedback to the FBA results
         results_with_feedback = testFeedbackUtil.addFeedbackToFBAOutput(app_runner_output, params['param_group'])
 
-        # Build a report and return
+        # Build the report to display
+        summary = outputUtil.createSummary(results_with_feedback)
         reportObj = {
           'objects_created': [],
-          'text_message': f'Resuts with feedback:<br />{json.dumps(results_with_feedback, indent=2)}'
+          'text_message': summary
         }
         report = KBaseReport(self.callback_url)
         report_info = report.create({'report': reportObj, 'workspace_name': params['workspace_name']})
