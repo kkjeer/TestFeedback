@@ -31,6 +31,33 @@
       "field_type": "text"
     },
     {
+      "id": "target_reaction",
+      "field_type": "textsubdata",
+      "allow_multiple": false,
+      "optional": true,
+      "advanced": false,
+      "default_values": ["bio1"],
+      "text_options": {
+        "valid_ws_types": []
+      },
+      "textsubdata_options": {
+        "show_src_obj": true,
+        "allow_custom": true,
+        "multiselection": false,
+        "subdata_selection": {
+          "additional_options": ["bio1 - Biomass"],
+          "subdata_included": [
+            "modelreactions/[*]/id",
+            "modelreactions/[*]/name"
+          ],
+          "selection_description": ["name"],
+          "selection_id": "id",
+          "path_to_subdata": ["modelreactions"],
+          "parameter_id": "fbamodel_id"
+        }
+      }
+    },
+    {
       "id": "test_run",
       "optional": true,
       "advanced": false,
@@ -94,6 +121,10 @@
         {
           "input_parameter": "fbamodel_id",
           "target_property": "fbamodel_id"
+        },
+        {
+          "input_parameter": "target_reaction",
+          "target_property": "target_reaction"
         },
         {
           "input_parameter": "table_id",
