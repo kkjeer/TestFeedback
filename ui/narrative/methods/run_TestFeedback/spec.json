@@ -92,10 +92,14 @@
         "multiselection": false,
         "subdata_selection": {
           "additional_options": [],
-          "subdata_included": ["instances/[*]", "instances/[*]"],
-          "selection_description": ["instances"],
-          "selection_id": "instances",
-          "path_to_subdata": ["instances"],
+          "subdata_included": [
+            "attributes/[*]/attribute",
+            "attributes/[*]/unit"
+          ],
+          "selection_description": ["attribute", "unit"],
+          "description_template": "attribute: {{attribute}}, unit: {{unit}}",
+          "selection_id": "attribute",
+          "path_to_subdata": ["attributes"],
           "parameter_id": "mapping_id"
         }
       }
