@@ -106,21 +106,26 @@
       }
     },
     {
-      "id": "comments",
+      "id": "additional_comments",
       "optional": true,
       "advanced": false,
       "allow_multiple": false,
       "default_values": [""],
       "field_type": "textarea",
       "textarea_options": {
-        "n_rows": 5
+        "n_rows": 3
       }
     }
   ],
   "parameter-groups": [
     {
       "id": "param_group",
-      "parameters": ["run_id", "feedback", "expected_value", "comments"],
+      "parameters": [
+        "run_id",
+        "feedback",
+        "expected_value",
+        "additional_comments"
+      ],
       "optional": false,
       "allow_multiple": true,
       "with_border": true
