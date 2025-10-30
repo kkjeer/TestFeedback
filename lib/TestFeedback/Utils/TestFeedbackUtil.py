@@ -41,6 +41,13 @@ class TestFeedbackUtil:
     result = {}
     data = mappings['data'][0]['data']
     logging.info(f'mappings data: {json.dumps(data, indent=2)}')
+
+    for i in range(0, len(data['attributes'])):
+      r = data['attributes'][i]['attribute']
+      row = {}
+      for c in data['instances']:
+        row[c] = data['instances'][c][i]
+      result[r] = row
     return result
   
   # This method converts the results of reading an AttributeMapping file into a JSON object
@@ -70,26 +77,20 @@ class TestFeedbackUtil:
 
     rows = list(output_json.keys())
 
-    for i in range(0, len(categories)):
-      run = categories[i]['test_run']
-      row = ''
-      # User entered an index in the test_run field
-      if run == str(i):
-        row = rows[i]
-      # User left the test_run field blank - default to the index in the set of categories
-      elif run == '':
-        row = rows[i]
-      # User entered something else in the test_run field - look through the app runner output
-      # to see if their input matches an fba_output_id for any FBA run
-      else:
-        for r in rows:
-          if run == output_json[r]['fba_output_id']:
-            row = r
-            break
-      if row != '':
-        result[row] = {
-          **output_json[row],
-          'feedback': categories[i]['feedback']
+    for r in rows:
+      if r != '':
+        feedback = self.getFeedbackFromAttributeMapping(r, categories)
+        result[r] = {
+          **output_json[r],
+          'feedback': feedback
         }
 
     return result
+  
+  def getFeedbackFromAttributeMapping(self, run, categories):
+    # TODO
+    return 'No feedback provided'
+  
+  def getFeedbackFromTextBox(self, run, categories):
+    # TODO
+    return 'No feedback provided'
