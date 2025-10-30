@@ -77,10 +77,9 @@ class TestFeedbackUtil:
 
     rows = list(output_json.keys())
 
-    for i in range(0, len(categories)):
-      r = categories['row_id'][0]
-      category = categories[i]
-      feedback = category['feedback']
+    for i in range(0, len(rows)):
+      r = rows[i]
+      feedback = self.getFeedbackFromAttributeMapping(r, categories)
       if r != '':
         feedback = self.getFeedbackFromAttributeMapping(r, categories)
         result[r] = {
@@ -89,6 +88,13 @@ class TestFeedbackUtil:
         }
 
     return result
+  
+  def getFeedbackFromAttributeMapping(self, run, categories):
+    for i in range(0, len(categories)):
+      run_id = categories[i]['run_id'][0]
+      if run_id == run:
+        return categories[i]['feedback']
+    return 'no feedback provided'
   
   def getFeedbackFromTextBox(self, run, categories):
     # TODO

@@ -69,15 +69,7 @@
       }
     },
     {
-      "id": "test_run",
-      "optional": true,
-      "advanced": false,
-      "allow_multiple": false,
-      "default_values": [""],
-      "field_type": "text"
-    },
-    {
-      "id": "row_id",
+      "id": "run_id",
       "field_type": "textsubdata",
       "allow_multiple": false,
       "optional": false,
@@ -105,7 +97,7 @@
       }
     },
     {
-      "id": "table_row_id",
+      "id": "table_run_id",
       "field_type": "textsubdata",
       "allow_multiple": false,
       "optional": true,
@@ -120,10 +112,10 @@
         "multiselection": false,
         "subdata_selection": {
           "additional_options": [],
-          "subdata_included": ["row_ids/[*]"],
+          "subdata_included": ["run_ids/[*]"],
           "selection_description": [""],
           "selection_id": "",
-          "path_to_subdata": ["row_ids"],
+          "path_to_subdata": ["run_ids"],
           "parameter_id": "table_id"
         }
       }
@@ -161,7 +153,7 @@
   "parameter-groups": [
     {
       "id": "param_group",
-      "parameters": ["test_run", "row_id", "feedback"],
+      "parameters": ["run_id", "feedback"],
       "optional": false,
       "allow_multiple": true,
       "with_border": true
