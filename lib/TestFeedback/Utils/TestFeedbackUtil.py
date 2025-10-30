@@ -94,7 +94,7 @@ class TestFeedbackUtil:
       run_id = categories[i]['run_id'][0]
       if run_id == run:
         return categories[i]['feedback']
-    return 'no feedback provided'
+    return 'n/a (unknown)'
   
   def getFeedbackFromTextBox(self, run, categories):
     # TODO
