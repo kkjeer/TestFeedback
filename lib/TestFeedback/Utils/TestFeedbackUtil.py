@@ -14,7 +14,7 @@ class TestFeedbackUtil:
     
   # This method converts the results of reading a StringDataTable file into a JSON object
   # that can then be manipulated by the rest of the app.
-  # If the output file format from AppRunner changes to a different media type, this method should be updated.
+  # If the output file format from AppRunner changes to a different media type, this method can be removed.
   def getStringDataTableOutputAsJson(self, table):
     if table is None:
       return None
@@ -32,6 +32,9 @@ class TestFeedbackUtil:
       result[key] = obj
     return result
   
+  # This method converts the results of reading an AttributeMapping file into a JSON object
+  # that can then be manipulated by the rest of the app.
+  # If the output file format from AppRunner changes to a different media type, this method can be removed.
   def getAttributeMappingOutputAsJson(self, mappings):
     if mappings is None:
       return None
@@ -45,7 +48,7 @@ class TestFeedbackUtil:
         param = data['attributes'][i]['attribute']
         val = data['instances'][r][i]
         row[param] = val
-      result[r] = {}
+      result[r] = row
     return result
   
   def addFeedbackToFBAOutput(self, output_json, categories):

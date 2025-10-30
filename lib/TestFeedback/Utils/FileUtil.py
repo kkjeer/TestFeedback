@@ -17,7 +17,7 @@ class FileUtil:
   # (See https://github.com/kbaseapps/SpeciesTreeBuilder/blob/dce166f6d1673018a001b750c191b9a2deda0c71/lib/src/workspace/ObjectSpecification.java).
   # TODO: how to get the table_id UI element to pass the table ref rather than the table name to the app?
   def readFile(self, ctx, file_name, workspace_name):
-    if file_name == '':
+    if file_name is None or file_name == '':
       logging.error('cannot read empty file name')
       return None
     try:
