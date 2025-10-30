@@ -77,6 +77,33 @@
       "field_type": "text"
     },
     {
+      "id": "row_id",
+      "field_type": "textsubdata",
+      "allow_multiple": false,
+      "optional": false,
+      "advanced": false,
+      "default_values": [""],
+      "text_options": {
+        "valid_ws_types": []
+      },
+      "textsubdata_options": {
+        "show_src_obj": true,
+        "allow_custom": true,
+        "multiselection": false,
+        "subdata_selection": {
+          "additional_options": [],
+          "subdata_included": [
+            "attributes/[*]/attribute",
+            "attributes/[*]/attribute"
+          ],
+          "selection_description": ["attributes"],
+          "selection_id": "attribute",
+          "path_to_subdata": ["attributes"],
+          "parameter_id": "mapping_id"
+        }
+      }
+    },
+    {
       "id": "feedback",
       "optional": false,
       "allow_multiple": false,
@@ -109,7 +136,7 @@
   "parameter-groups": [
     {
       "id": "param_group",
-      "parameters": ["test_run", "feedback"],
+      "parameters": ["test_run", "row_id", "feedback"],
       "optional": false,
       "allow_multiple": true,
       "with_border": true
