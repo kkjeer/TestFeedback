@@ -105,6 +105,30 @@
       }
     },
     {
+      "id": "table_row_id",
+      "field_type": "textsubdata",
+      "allow_multiple": false,
+      "optional": false,
+      "advanced": false,
+      "default_values": [""],
+      "text_options": {
+        "valid_ws_types": []
+      },
+      "textsubdata_options": {
+        "show_src_obj": true,
+        "allow_custom": true,
+        "multiselection": false,
+        "subdata_selection": {
+          "additional_options": [],
+          "subdata_included": ["row_ids/[*]"],
+          "selection_description": [""],
+          "selection_id": "",
+          "path_to_subdata": ["row_ids"],
+          "parameter_id": "table_id"
+        }
+      }
+    },
+    {
       "id": "feedback",
       "optional": false,
       "allow_multiple": false,

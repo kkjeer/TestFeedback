@@ -51,6 +51,11 @@ parameters:
       Row
     short-hint: |
       Name of the test run to categorize
+  table_row_id:
+    ui-name: |
+      Table row
+    short-hint: |
+      Name of the test run to categorize
   feedback:
     ui-name: |
       Feedback
