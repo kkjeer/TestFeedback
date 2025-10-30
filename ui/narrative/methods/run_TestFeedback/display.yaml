@@ -34,6 +34,13 @@ parameters:
       Feedback
     short-hint: |
       Category of the result for a given test run
+  output_id:
+    ui-name: |
+      Output feedback
+    short-hint: |
+      Inputs and outputs for each FBA run, annotated with user feedback
+    placeholder: |
+      ID for saving feedback results
 
 parameter-groups:
   param_group:

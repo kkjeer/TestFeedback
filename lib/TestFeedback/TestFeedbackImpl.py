@@ -72,8 +72,8 @@ Provide feedback on test runs of flux balance analysis.
         outputUtil = OutputUtil(self.config)
 
         # Read the output created from AppRunner (this contains the information about the FBA runs)
-        attribute_mapping = fileUtil.readFileById(ctx, params['mapping_id'])
-        app_runner_output = testFeedbackUtil.getFlippedAttributeMappingOutputAsJson(attribute_mapping)
+        input_file = fileUtil.readFileById(ctx, params['mapping_id'])
+        app_runner_output = testFeedbackUtil.getFlippedAttributeMappingOutputAsJson(input_file)
         if app_runner_output is not None:
           logging.info(f'got app runner mapping output json: {json.dumps(app_runner_output, indent=2)}')
 
