@@ -35,6 +35,17 @@ class TestFeedbackUtil:
   # This method converts the results of reading an AttributeMapping file into a JSON object
   # that can then be manipulated by the rest of the app.
   # If the output file format from AppRunner changes to a different media type, this method can be removed.
+  def getFlippedAttributeMappingOutputAsJson(self, mappings):
+    if mappings is None:
+      return None
+    result = {}
+    data = mappings['data'][0]['data']
+    logging.info(f'mappings data: {json.dumps(data, indent=2)}')
+    return result
+  
+  # This method converts the results of reading an AttributeMapping file into a JSON object
+  # that can then be manipulated by the rest of the app.
+  # If the output file format from AppRunner changes to a different media type, this method can be removed.
   def getAttributeMappingOutputAsJson(self, mappings):
     if mappings is None:
       return None

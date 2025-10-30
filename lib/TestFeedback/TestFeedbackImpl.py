@@ -79,7 +79,7 @@ Provide feedback on test runs of flux balance analysis.
 
         # Experiment with reading the AppRunner output as an attribute mapping file
         attribute_mapping = fileUtil.readFile(ctx, params['mapping_id'], params['workspace_name'])
-        mapping_output = testFeedbackUtil.getAttributeMappingOutputAsJson(attribute_mapping)
+        mapping_output = testFeedbackUtil.getFlippedAttributeMappingOutputAsJson(attribute_mapping)
         if mapping_output is not None:
           logging.info(f'got app runner mapping output json: {json.dumps(mapping_output, indent=2)}')
           app_runner_output = mapping_output

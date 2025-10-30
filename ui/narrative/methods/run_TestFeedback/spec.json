@@ -108,8 +108,8 @@
       "id": "table_row_id",
       "field_type": "textsubdata",
       "allow_multiple": false,
-      "optional": false,
-      "advanced": false,
+      "optional": true,
+      "advanced": true,
       "default_values": [""],
       "text_options": {
         "valid_ws_types": []
