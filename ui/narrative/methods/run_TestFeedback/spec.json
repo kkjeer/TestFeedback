@@ -9,17 +9,6 @@
   },
   "parameters": [
     {
-      "id": "table_id",
-      "optional": true,
-      "advanced": true,
-      "allow_multiple": false,
-      "default_values": [""],
-      "field_type": "text",
-      "text_options": {
-        "valid_ws_types": ["MAK.StringDataTable"]
-      }
-    },
-    {
       "id": "mapping_id",
       "optional": false,
       "advanced": false,
@@ -110,11 +99,6 @@
         {
           "narrative_system_variable": "workspace_id",
           "target_property": "workspace_id"
-        },
-        {
-          "input_parameter": "table_id",
-          "target_property": "table_id",
-          "target_type_transform": "resolved-ref"
         },
         {
           "input_parameter": "mapping_id",

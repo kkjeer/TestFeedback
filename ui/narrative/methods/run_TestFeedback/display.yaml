@@ -19,11 +19,6 @@ suggestions:
 # Configure the display and description of parameters
 #
 parameters:
-  table_id:
-    ui-name: |
-      App Runner table
-    short-hint: |
-      StringDataTable output by the App Runner app containing the results of running FBA
   mapping_id:
     ui-name: |
       App Runner attribute mapping
