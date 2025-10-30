@@ -31,44 +31,6 @@
       }
     },
     {
-      "text_options": {
-        "valid_ws_types": ["KBaseFBA.FBAModel"]
-      },
-      "advanced": true,
-      "default_values": [""],
-      "id": "fbamodel_id",
-      "optional": true,
-      "allow_multiple": false,
-      "field_type": "text"
-    },
-    {
-      "id": "target_reaction",
-      "field_type": "textsubdata",
-      "allow_multiple": false,
-      "optional": true,
-      "advanced": true,
-      "default_values": ["bio1"],
-      "text_options": {
-        "valid_ws_types": []
-      },
-      "textsubdata_options": {
-        "show_src_obj": true,
-        "allow_custom": true,
-        "multiselection": false,
-        "subdata_selection": {
-          "additional_options": ["bio1 - Biomass"],
-          "subdata_included": [
-            "modelreactions/[*]/id",
-            "modelreactions/[*]/name"
-          ],
-          "selection_description": ["name"],
-          "selection_id": "id",
-          "path_to_subdata": ["modelreactions"],
-          "parameter_id": "fbamodel_id"
-        }
-      }
-    },
-    {
       "id": "run_id",
       "field_type": "textsubdata",
       "allow_multiple": false,
@@ -93,30 +55,6 @@
           "selection_id": "attribute",
           "path_to_subdata": ["attributes"],
           "parameter_id": "mapping_id"
-        }
-      }
-    },
-    {
-      "id": "table_run_id",
-      "field_type": "textsubdata",
-      "allow_multiple": false,
-      "optional": true,
-      "advanced": true,
-      "default_values": [""],
-      "text_options": {
-        "valid_ws_types": []
-      },
-      "textsubdata_options": {
-        "show_src_obj": true,
-        "allow_custom": true,
-        "multiselection": false,
-        "subdata_selection": {
-          "additional_options": [],
-          "subdata_included": ["run_ids/[*]"],
-          "selection_description": [""],
-          "selection_id": "",
-          "path_to_subdata": ["run_ids"],
-          "parameter_id": "table_id"
         }
       }
     },
@@ -174,16 +112,9 @@
           "target_property": "workspace_id"
         },
         {
-          "input_parameter": "fbamodel_id",
-          "target_property": "fbamodel_id"
-        },
-        {
-          "input_parameter": "target_reaction",
-          "target_property": "target_reaction"
-        },
-        {
           "input_parameter": "table_id",
-          "target_property": "table_id"
+          "target_property": "table_id",
+          "target_type_transform": "resolved-ref"
         },
         {
           "input_parameter": "mapping_id",

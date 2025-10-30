@@ -29,31 +29,9 @@ parameters:
       App Runner attribute mapping
     short-hint: |
       AttributeMapping output by the App Runner app containing the results of running FBA
-  fbamodel_id:
-    ui-name: |
-      FBA model
-    short-hint: |
-      The metabolic model consisting of genome-wide set of stoichiometric reactions, compounds, and the weighted components of the biomass on which you wish to carry out Flux Balance Analysis (FBA). This model can be built using the “Build Metabolic Model” App.
-    placeholder: |
-      Model for FBA
-  target_reaction:
-    ui-name: |
-      Reaction to maximize
-    short-hint: |
-      ID of reaction flux to maximize in FBA. Only one reaction can be selected. First you must deselect the default reaction 'bio1' and then select the desired target reaction to maximize. You may use the search box to search through the available reactions in your model.
-  test_run:
-    ui-name: |
-      Test run
-    short-hint: |
-      Name (or index) of the test run to categorize
   run_id:
     ui-name: |
       Row
-    short-hint: |
-      Name of the test run to categorize
-  table_run_id:
-    ui-name: |
-      Table row
     short-hint: |
       Name of the test run to categorize
   feedback:
