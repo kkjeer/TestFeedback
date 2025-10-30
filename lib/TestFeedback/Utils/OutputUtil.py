@@ -10,6 +10,22 @@ class OutputUtil:
     self.shared_folder = config['scratch']
     logging.basicConfig(format='%(created)s %(levelname)s: %(message)s',
                         level=logging.INFO)
+    
+  # This method creates data that can be written to an AttributeMapping file.
+  # Its can be used to output the FBA test runs, annotated with feedback, to a file.
+  def createAttributeMappingData(self, output_json):
+    rows = list(output_json.keys())
+    cols = list(output_json[rows[0]].keys())
+
+    instances = {}
+    for key in output_json:
+      instances[key] = [output_json[key][param] for param in output_json[key]]
+    mapping_data = {
+      'attributes': [{'attribute': param, 'source': 'upload', 'unit': ''} for param in cols],
+      'instances': instances,
+      'ontology_mapping_method': 'User curation'
+    }
+    return mapping_data
   
   # This method creates a stringified HTML table containing the results of the FBA runs.
   # This table can be appended to the app summary that is displayed to the user.

@@ -80,10 +80,17 @@ Provide feedback on test runs of flux balance analysis.
         # Add the feedback to the FBA results
         results_with_feedback = testFeedbackUtil.addFeedbackToFBAOutput(app_runner_output, params['param_group'])
 
+        # Save the annotated results (with feedback) to an output file
+        objects_created = []
+        mapping_data = outputUtil.createAttributeMappingData(results_with_feedback)
+        output_file = fileUtil.writeAttributeMappingFile(ctx, params, mapping_data)
+        if output_file is not None:
+          objects_created.append(output_file)
+
         # Build the report to display
         summary = outputUtil.createSummary(results_with_feedback)
         reportObj = {
-          'objects_created': [],
+          'objects_created': objects_created,
           'text_message': summary
         }
         report = KBaseReport(self.callback_url)

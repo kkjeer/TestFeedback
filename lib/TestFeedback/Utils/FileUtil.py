@@ -42,3 +42,31 @@ class FileUtil:
     except Exception as e:
       logging.error(f'could not read file {file_name}: {e}')
       return None
+    
+  # This is a helper method for writing a file to the workspace.
+  def writeFile(self, ctx, params, data, name, type, description):
+    try:
+      ws = Workspace(self.ws_url, token=ctx['token'])
+      save_result = ws.save_objects(
+         {
+           'workspace': params['workspace_name'],
+           'objects': [
+              {
+                'name': name,
+                'type': type,
+                'data': data,
+              }
+            ]
+          })
+      logging.info(f'saved file {name} of type {type}: {save_result}')
+      id = save_result[0][0]
+      version = save_result[0][4]
+      workspace_id = save_result[0][6]
+      ref = f'{workspace_id}/{id}/{version}'
+      return {'ref': ref, 'description': description}
+    except Exception as e:
+      logging.error(f'failed to save file {name} of type {type}: {e}')
+      return None
+  
+  def writeAttributeMappingFile(self, ctx, params, mapping_data):
+    return self.writeFile(ctx, params, mapping_data, 'test-feedback-attribute-mapping', 'KBaseExperiments.AttributeMapping', 'test results with feedback')
