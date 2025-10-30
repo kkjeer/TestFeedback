@@ -39,11 +39,11 @@ class TestFeedbackUtil:
     data = mappings['data'][0]['data']
     logging.info(f'mappings data: {json.dumps(data, indent=2)}')
 
-    for r in mappings['instances']:
+    for r in data['instances']:
       row = {}
-      for i in range(0, len(mappings['instances'][r])):
-        param = mappings['attributes'][i]['attribute']
-        val = mappings['instances'][r][i]
+      for i in range(0, len(data['instances'][r])):
+        param = data['attributes'][i]['attribute']
+        val = data['instances'][r][i]
         row[param] = val
       result[r] = {}
     return result
