@@ -34,7 +34,7 @@
       "text_options": {
         "valid_ws_types": ["KBaseFBA.FBAModel"]
       },
-      "advanced": false,
+      "advanced": true,
       "default_values": [""],
       "id": "fbamodel_id",
       "optional": true,
@@ -46,7 +46,7 @@
       "field_type": "textsubdata",
       "allow_multiple": false,
       "optional": true,
-      "advanced": false,
+      "advanced": true,
       "default_values": ["bio1"],
       "text_options": {
         "valid_ws_types": []
