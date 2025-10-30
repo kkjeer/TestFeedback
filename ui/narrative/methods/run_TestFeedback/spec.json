@@ -83,8 +83,8 @@
       }
     },
     {
-      "default_values": [""],
       "id": "expected_value",
+      "default_values": [""],
       "advanced": false,
       "field_type": "text",
       "allow_multiple": false,
@@ -94,9 +94,9 @@
       }
     },
     {
+      "id": "output_id",
       "default_values": [""],
       "advanced": false,
-      "id": "output_id",
       "optional": false,
       "allow_multiple": false,
       "field_type": "text",
@@ -104,12 +104,23 @@
         "valid_ws_types": ["KBaseExperiments.AttributeMapping"],
         "is_output_name": true
       }
+    },
+    {
+      "id": "comments",
+      "optional": true,
+      "advanced": false,
+      "allow_multiple": false,
+      "default_values": [""],
+      "field_type": "textarea",
+      "textarea_options": {
+        "n_rows": 5
+      }
     }
   ],
   "parameter-groups": [
     {
       "id": "param_group",
-      "parameters": ["run_id", "feedback", "expected_value"],
+      "parameters": ["run_id", "feedback", "expected_value", "comments"],
       "optional": false,
       "allow_multiple": true,
       "with_border": true

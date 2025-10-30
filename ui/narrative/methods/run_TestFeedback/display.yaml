@@ -41,6 +41,11 @@ parameters:
       Expected value of the objective_value of a given test run
     long-hint: |
       Expected value of the objective_value of a given test run. (Only applies if the feedback for the run is incorrect).
+  comments:
+    ui-name: |
+      Comments
+    short-hint: |
+      Comments on a given test run
   output_id:
     ui-name: |
       Output feedback
