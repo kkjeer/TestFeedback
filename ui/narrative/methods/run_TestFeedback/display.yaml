@@ -34,6 +34,13 @@ parameters:
       Feedback
     short-hint: |
       Category of the result for a given test run
+  expected_value:
+    ui-name: |
+      Expected value
+    short-hint: |
+      Expected value of the objective_value of a given test run
+    long-hint: |
+      Expected value of the objective_value of a given test run. (Only applies if the feedback for the run is incorrect).
   output_id:
     ui-name: |
       Output feedback

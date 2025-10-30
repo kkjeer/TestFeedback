@@ -68,5 +68,8 @@ class FileUtil:
       logging.error(f'failed to save file {name} of type {type}: {e}')
       return None
   
-  def writeAttributeMappingFile(self, ctx, params, mapping_data):
-    return self.writeFile(ctx, params, mapping_data, 'test-feedback-attribute-mapping', 'KBaseExperiments.AttributeMapping', 'test results with feedback')
+  # This method writes an attribute mapping file to the workspace.
+  # It can be used to save the annotated FBA run results.
+  def writeAttributeMappingFile(self, ctx, params, mapping_data, file_name):
+    name = 'test-feedback-attribute-mapping' if file_name is None or file_name == '' else file_name
+    return self.writeFile(ctx, params, mapping_data, name, 'KBaseExperiments.AttributeMapping', 'test results with feedback')

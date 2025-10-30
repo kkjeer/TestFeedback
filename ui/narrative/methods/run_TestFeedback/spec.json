@@ -68,12 +68,29 @@
             "ui_name": "Correct"
           },
           {
-            "value": "incorrect",
-            "display": "Incorrect",
-            "id": "incorrect",
-            "ui_name": "Incorrect"
+            "value": "incorrect (too small)",
+            "display": "Incorrect (too small)",
+            "id": "incorrect (too small)",
+            "ui_name": "Incorrect (too small)"
+          },
+          {
+            "value": "incorrect (too large)",
+            "display": "Incorrect (too large)",
+            "id": "incorrect (too large)",
+            "ui_name": "Incorrect (too large)"
           }
         ]
+      }
+    },
+    {
+      "default_values": [""],
+      "id": "expected_value",
+      "advanced": false,
+      "field_type": "text",
+      "allow_multiple": false,
+      "optional": true,
+      "text_options": {
+        "validate_as": "float"
       }
     },
     {
@@ -92,7 +109,7 @@
   "parameter-groups": [
     {
       "id": "param_group",
-      "parameters": ["run_id", "feedback"],
+      "parameters": ["run_id", "feedback", "expected_value"],
       "optional": false,
       "allow_multiple": true,
       "with_border": true
