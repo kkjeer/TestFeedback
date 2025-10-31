@@ -92,18 +92,6 @@
       "text_options": {
         "validate_as": "float"
       }
-    },
-    {
-      "id": "output_id",
-      "default_values": ["test-feedback-output"],
-      "advanced": false,
-      "optional": true,
-      "allow_multiple": false,
-      "field_type": "text",
-      "text_options": {
-        "valid_ws_types": ["KBaseExperiments.AttributeMapping"],
-        "is_output_name": true
-      }
     }
   ],
   "parameter-groups": [
@@ -137,10 +125,6 @@
         {
           "input_parameter": "param_group",
           "target_property": "param_group"
-        },
-        {
-          "input_parameter": "output_id",
-          "target_property": "output_id"
         }
       ],
       "output_mapping": [
@@ -155,10 +139,6 @@
         {
           "narrative_system_variable": "workspace",
           "target_property": "workspace_name"
-        },
-        {
-          "input_parameter": "output_id",
-          "target_property": "obj"
         }
       ]
     }

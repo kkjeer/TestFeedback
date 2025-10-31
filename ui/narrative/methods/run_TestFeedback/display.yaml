@@ -41,13 +41,6 @@ parameters:
       Expected value of the objective_value of a given test run
     long-hint: |
       Expected value of the objective_value of a given test run. (Only applies if the feedback for the run is incorrect).
-  output_id:
-    ui-name: |
-      Output feedback
-    short-hint: |
-      Inputs and outputs for each FBA run, annotated with user feedback
-    placeholder: |
-      ID for saving feedback results
 
 parameter-groups:
   param_group:
