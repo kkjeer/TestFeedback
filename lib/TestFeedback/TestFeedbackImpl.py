@@ -83,6 +83,7 @@ Provide feedback on test runs of flux balance analysis.
         # Save the annotated results (with feedback) to an output file
         objects_created = []
         mapping_data = outputUtil.createAttributeMappingData(results_with_feedback)
+        logging.info(f'mapping data to save: {json.dumps(mapping_data, indent=2)}')
         output_file = fileUtil.writeAttributeMappingFile(ctx, params, mapping_data, '')
         if output_file is not None:
           objects_created.append(output_file)
